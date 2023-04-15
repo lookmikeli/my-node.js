@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="axios.js"></script>
+</head>
+
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="delete">DELETE</button>
+
+    <script>
+        // 1.测试GET请求
+        document.querySelector('#get').addEventListener('click', function () {
+            axios.get('http://127.0.0.1/api/get', { params: { name: 'li', age: 18 } }).then(res => {
+                console.log(res);
+            })
+
+        })
+        // 2.测试POST请求
+        document.querySelector('#post').addEventListener('click', function () {
+
+            axios.post('http://127.0.0.1/api/post', { bookname: '西游记', author: '小黑子' }
+            ).then(res => {
+                console.log(res);
+            })
+
+        })
+        // 2.测试DELETE请求
+        document.querySelector('#delete').addEventListener('click', function () {
+
+            axios.delete('http://127.0.0.1/api/delete'
+            ).then(res => {
+                console.log(res);
+            })
+
+        })
+    </script>
+    <!-- JSONP 向客户端发送请求 -->
+    <script src="http://127.0.0.1/api/jsonp?callback"></script>
+
+</body>
+
+</html>
